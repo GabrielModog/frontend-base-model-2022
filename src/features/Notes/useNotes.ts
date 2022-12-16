@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Note } from './Notes.types'
+import { Note, NoteFolder } from './Notes.types'
 
 export function useNotes() {
   const [notes, setNotes] = useState<Note[]>([])
@@ -12,5 +12,29 @@ export function useNotes() {
     setNotes((prev) => prev.filter((item) => item.id !== noteId))
   }
 
-  return [notes, addNote, removeNote]
+  function updadteNote(noteId: Note['id'], text: Note['text']) {
+    const updatedList = notes.map((note) => {
+      if (noteId === note.id) {
+        return { ...note, text: text }
+      }
+
+      return note
+    })
+
+    setNotes(updatedList)
+  }
+
+  function moveToAnotherFolder(noteId: Note['id'], folderName: NoteFolder) {
+    const updatedList = notes.map((note) => {
+      if (noteId === note.id) {
+        return { ...note, folder: folderName }
+      }
+
+      return note
+    })
+
+    setNotes(updatedList)
+  }
+
+  return [notes, addNote, updadteNote, removeNote, moveToAnotherFolder]
 }
