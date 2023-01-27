@@ -4,7 +4,7 @@ export enum NoteFolder {
   'UPDATED'
 }
 
-export type Note = {
+export type NoteProps = {
   id: string
   title?: string
   text: string
@@ -14,4 +14,12 @@ export type Note = {
   deletedAt?: string
 }
 
-export type NotesProps = Note[]
+export type NotesProps = NoteProps[]
+
+export type UseNotesStore = {
+  notes: NoteProps[]
+  addNote: (note: NoteProps) => void
+  removeNote: (noteId: NoteProps['id']) => void
+  updateNote: (noteId: NoteProps['id'], note: NoteProps) => void
+  moveToAnotherFolder?: (noteId: NoteProps['id'], folderName: NoteFolder) => void
+}
