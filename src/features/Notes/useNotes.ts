@@ -1,8 +1,15 @@
 import create from 'zustand'
-import { NoteProps, NoteFolder, UseNotesStore } from './Notes.types'
+import { NoteProps, UseNotesStore } from './Notes.types'
+import { NotesDefaultState } from './utils/notes-mock'
 
 export const useNotes = create<UseNotesStore>((set) => ({
-  notes: [],
+  notes: NotesDefaultState,
+  selected: {},
+  selectNote: (noteId: NoteProps['id']) =>
+    set((state) => {
+      const note = state.notes.find((nt) => nt.id == noteId)
+      return { selected: note }
+    }),
   addNote: (note: NoteProps) => set((state) => ({ notes: [...state.notes, note] })),
   removeNote: (noteId: NoteProps['id']) =>
     set((state) => ({ notes: [...state.notes.filter((note) => note.id === noteId)] })),
@@ -11,5 +18,4 @@ export const useNotes = create<UseNotesStore>((set) => ({
       const newNotes = state.notes.map((nt) => (nt.id == noteId ? { ...note } : nt))
       return { notes: [...newNotes] }
     })
-  // moveToAnotherFolder: (noteId: Note['id'], folderName: NoteFolder) => set()
 }))
