@@ -16,5 +16,13 @@ export const NotesDefaultState: NoteProps[] = [
     createdAt: '2023-01-27',
     isSelected: false,
     folder: 'ACTIVE'
+  },
+  {
+    id: '0y2w3c42',
+    title: 'Algebra',
+    text: 'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
+    createdAt: '2023-01-27',
+    isSelected: false,
+    folder: 'ACTIVE'
   }
 ]

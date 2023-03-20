@@ -13,7 +13,6 @@ import {
 import { useNotes } from '@/features/Notes/useNotes'
 import { useRouter } from 'next/router'
 import { useDisclosure } from '@mantine/hooks'
-import { stringify } from 'querystring'
 import { useForm } from '@mantine/form'
 
 const useStyles = createStyles((theme) => ({

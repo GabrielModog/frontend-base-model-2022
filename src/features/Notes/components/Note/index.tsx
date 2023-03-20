@@ -1,10 +1,21 @@
-import { Text, Badge, Stack, Button, Flex } from '@mantine/core'
+import { Text, Badge, Stack, Button, Flex, createStyles } from '@mantine/core'
+import { useRouter } from 'next/router'
 
 import type { NoteProps } from '@/features/Notes/Notes.types'
 import { useNotes } from '@/features/Notes/useNotes'
-import { useRouter } from 'next/router'
+
+const useStyles = createStyles((theme) => ({
+  main: {
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: theme.colors.gray[5],
+      transition: '350ms'
+    }
+  }
+}))
 
 export default function Note({ id, title, text, folder }: NoteProps) {
+  const { classes } = useStyles()
   const { selectNote, moveToAnotherFolder } = useNotes()
   const router = useRouter()
 
@@ -20,7 +31,13 @@ export default function Note({ id, title, text, folder }: NoteProps) {
   }
 
   return (
-    <Stack justify="space-between" align="scretch" onClick={handleSelectNoteOnClick}>
+    <Stack
+      justify="space-between"
+      align="scretch"
+      onClick={handleSelectNoteOnClick}
+      className={classes.main}
+      p="md"
+    >
       <Text fw="bold" size="sm">
         {title}
       </Text>
