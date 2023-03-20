@@ -1,9 +1,9 @@
-import { Notes } from '@/features/Notes'
+import { NotesContentPage } from '@/features/Notes'
 
 export default function Home() {
   return (
     <div>
-      <Notes />
+      <NotesContentPage />
     </div>
   )
 }

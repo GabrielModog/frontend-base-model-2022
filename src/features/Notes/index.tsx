@@ -1,1 +1,2 @@
-export * from './Notes'
+export * from './pages/Notes'
+export * from './pages/note'

@@ -1,9 +1,8 @@
 import { Container } from '@mantine/core'
-import NotesList from './components/NotesList'
-import { NoteProps } from './Notes.types'
-import { useNotes } from './useNotes'
+import NotesList from '../components/NotesList'
+import { useNotes } from '../useNotes'
 
-export function Notes() {
+export function NotesContentPage() {
   const { notes } = useNotes()
   return (
     <Container size="lg" py="xl">

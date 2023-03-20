@@ -10,6 +10,7 @@ export const useNotes = create<UseNotesStore>((set) => ({
       const note = state.notes.find((nt) => nt.id == noteId)
       return { selected: note }
     }),
+  unseleactNote: () => set({ selected: {} }),
   addNote: (note: NoteProps) => set((state) => ({ notes: [...state.notes, note] })),
   removeNote: (noteId: NoteProps['id']) =>
     set((state) => ({ notes: [...state.notes.filter((note) => note.id === noteId)] })),
