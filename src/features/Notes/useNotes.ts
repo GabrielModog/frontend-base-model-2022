@@ -1,5 +1,5 @@
 import create from 'zustand'
-import { NoteProps, UseNotesStore } from './Notes.types'
+import { NoteFolder, NoteProps, UseNotesStore } from './Notes.types'
 import { NotesDefaultState } from './utils/notes-mock'
 
 export const useNotes = create<UseNotesStore>((set) => ({
@@ -17,6 +17,14 @@ export const useNotes = create<UseNotesStore>((set) => ({
   updateNote: (noteId: NoteProps['id'], note: NoteProps) =>
     set((state) => {
       const newNotes = state.notes.map((nt) => (nt.id == noteId ? { ...note } : nt))
+      return { notes: [...newNotes] }
+    }),
+  moveToAnotherFolder: (noteId: NoteProps['id'], folderName: NoteFolder) =>
+    set((state) => {
+      const newNotes = state.notes.map((note) => {
+        if (note.id == noteId) return { ...note, folder: folderName }
+        return note
+      })
       return { notes: [...newNotes] }
     })
 }))

@@ -77,6 +77,9 @@ export default function NoteForm() {
                 Cancel
               </Button>
             </Button.Group>
+            <Button size="xs" color="red">
+              Delete
+            </Button>
           </Flex>
         </Stack>
       </Stack>

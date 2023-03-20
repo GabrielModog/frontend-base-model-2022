@@ -6,13 +6,15 @@ export const NotesDefaultState: NoteProps[] = [
     title: 'Ispum Power',
     text: 'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
     createdAt: '2023-01-27',
-    isSelected: false
+    isSelected: false,
+    folder: 'ACTIVE'
   },
   {
     id: 'ek2w3c42',
     title: 'Trigonometry',
     text: 'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
     createdAt: '2023-01-27',
-    isSelected: false
+    isSelected: false,
+    folder: 'ACTIVE'
   }
 ]
