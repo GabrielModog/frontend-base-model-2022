@@ -1,5 +1,5 @@
-import NoteForm from '../components/Form'
+import NoteEditForm from '../components/EditForm'
 
 export function NoteContentPage() {
-  return <NoteForm />
+  return <NoteEditForm />
 }
