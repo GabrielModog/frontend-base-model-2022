@@ -52,6 +52,7 @@ export default function NoteCreateForm() {
       id: (Math.random() * Date.now()).toString(),
       title: values.title,
       text: values.title,
+      folder: 'ACTIVE',
       createdAt: new Date().toString()
     }
     addNote(note)
