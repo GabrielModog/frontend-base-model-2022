@@ -7,4 +7,5 @@ export interface CounterStore {
   increment: () => void
   descrement: () => void
   insertValue: (value: number) => void
+  asyncIncrement: () => Promise<void>
 }
